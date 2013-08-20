@@ -1,6 +1,8 @@
 Pantie
 ======
 
+[![Build Status](https://travis-ci.org/Xowap/Pantie.png)](https://travis-ci.org/Xowap/Pantie)
+
 Pantie is somewhat complementar to sockets, and stands for Private Ajax Network Transmission Internal Executor.
 
 The goal is to create a system for medium websites that would want HTTP push notifications from server to client,
