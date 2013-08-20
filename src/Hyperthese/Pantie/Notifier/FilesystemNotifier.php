@@ -5,6 +5,7 @@ namespace Hyperthese\Pantie\Notifier;
 
 
 use Hyperthese\Pantie\Ticker\Ticker;
+use Hyperthese\Pantie\Util\Directory;
 
 /**
  * Class FilesystemNotifier
@@ -96,7 +97,7 @@ final class FilesystemNotifier implements Notifier {
 	public function sendBlob($content) {
 		$this->sanityCheck();
 
-		$blobName = implode(DIRECTORY_SEPARATOR, array($this->path, $this->makeBlobName()));
+		$blobName = Directory::join($this->path, $this->makeBlobName());
 		$fh = fopen($blobName, "w");
 		fwrite($fh, $content);
 		fclose($fh);
@@ -113,7 +114,7 @@ final class FilesystemNotifier implements Notifier {
 	 * @param int $timeout Time to wait at most
 	 */
 	public function wait($timeout) {
-		$blobPattern = implode(DIRECTORY_SEPARATOR, array($this->path, "*.blob"));
+		$blobPattern = Directory::join($this->path, "*.blob");
 		$foundBlobs = false;
 		$deadline = microtime(true) + $timeout;
 
