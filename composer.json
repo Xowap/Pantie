@@ -1,0 +1,15 @@
+{
+    "name": "hyperthese/pantie",
+    "description": "Private Ajax Network Transmission Internal Executor",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Rémy Sanchez",
+            "email": "remy.sanchez@hyperthese.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    }
+}
