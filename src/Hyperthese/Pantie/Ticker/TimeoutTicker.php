@@ -10,11 +10,9 @@ final class TimeoutTicker implements Ticker {
 	 */
 	const DEFAULT_POLL_MILLISEC_PERIOD = 100;
 
-	private $path;
 	private $millisecWaitingTime;
 
-	public function __construct($path, $millisecWaitingTime = static::DEFAULT_POLL_MILLISEC_PERIOD) {
-		$this->path = $path;
+	public function __construct($millisecWaitingTime = self::DEFAULT_POLL_MILLISEC_PERIOD) {
 		$this->millisecWaitingTime = $millisecWaitingTime;
 	}
 
