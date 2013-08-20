@@ -9,7 +9,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {
-
+    "autoload": {
+        "psr-0": {
+            "Hyperthese\\Pantie": "src/",
+            "Test\\Hyperthese\\Pantie": "test/"
+        }
     }
 }
