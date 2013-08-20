@@ -108,11 +108,11 @@ final class FilesystemNotifier implements Notifier {
 	public function wait($timeout) {
 		$blobPattern = implode(DIRECTORY_SEPARATOR, array($this->path, "*.blob"));
 		$foundBlobs = false;
-		$deadline = time() + $timeout;
+		$deadline = microtime(true) + $timeout;
 
 		$this->sanityCheck();
 
-		while (!$foundBlobs) {
+		while (!$foundBlobs and (microtime(true) < $deadline)) {
 			$blobList = glob($blobPattern);
 
 			foreach ($blobList as $blobPath) {
