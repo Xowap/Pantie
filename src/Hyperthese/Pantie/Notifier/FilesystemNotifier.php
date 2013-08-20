@@ -6,6 +6,13 @@ namespace Hyperthese\Pantie\Notifier;
 
 use Hyperthese\Pantie\Ticker\Ticker;
 
+/**
+ * Class FilesystemNotifier
+ *
+ * A notifier that gets blob notifications from the file system.
+ *
+ * @package Hyperthese\Pantie\Notifier
+ */
 final class FilesystemNotifier implements Notifier {
 	/**
 	 * @var string Path to the folder containing the blob queue

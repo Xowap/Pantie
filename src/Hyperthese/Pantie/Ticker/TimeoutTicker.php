@@ -3,7 +3,13 @@
 
 namespace Hyperthese\Pantie\Ticker;
 
-
+/**
+ * Class TimeoutTicker
+ *
+ * This is a stupid ticker that instead of actually doing anything just returns from waiting after a given deadline.
+ *
+ * @package Hyperthese\Pantie\Ticker
+ */
 final class TimeoutTicker implements Ticker {
 	/**
 	 * Default poll period, in milliseconds

@@ -6,7 +6,21 @@ namespace Hyperthese\Pantie\Util;
 
 use InvalidArgumentException;
 
+/**
+ * Class Directory
+ *
+ * Just a few utility methods to work with directories.
+ *
+ * @package Hyperthese\Pantie\Util
+ */
 class Directory {
+	/**
+	 * Removes a directory and all its sub-files.
+	 *
+	 * @param $path
+	 *
+	 * @throws \InvalidArgumentException
+	 */
 	public static function removeDirectory($path) {
 		if (! is_dir($path)) {
 			throw new InvalidArgumentException("$path must be a directory");
@@ -27,6 +41,11 @@ class Directory {
 		rmdir($path);
 	}
 
+	/**
+	 * Creates a temporary directory and returns the path to it.
+	 *
+	 * @return string
+	 */
 	public static function createTemporaryDirectory() {
 		$temporaryFile = tempnam(sys_get_temp_dir(), 'pantie');
 

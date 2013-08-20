@@ -3,7 +3,13 @@
 
 namespace Hyperthese\Pantie\Notifier;
 
-
+/**
+ * Class Notifier
+ *
+ * The Notifier interface handles the "real-time" sending and receiving of blobs
+ *
+ * @package Hyperthese\Pantie\Notifier
+ */
 interface Notifier {
 	/**
 	 * Provide a callback to be called when a new blob arrives. Usually, blobs will arrive one at a time, resulting in a
