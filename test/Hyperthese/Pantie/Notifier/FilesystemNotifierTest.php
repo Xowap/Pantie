@@ -39,6 +39,7 @@ class FilesystemNotifierTest extends \PHPUnit_Framework_TestCase {
 	const TEST_BLOB_CONTENT1 = "coucou";
 	const TEST_BLOB_CONTENT2 = "pouet";
 	const TEST_WAIT_TIMEOUT = 100;
+	const TIMEOUT_PRECISION = 0.2;
 
 	/** @var FilesystemNotifier $notifier */
 	private $notifier;
@@ -84,7 +85,7 @@ class FilesystemNotifierTest extends \PHPUnit_Framework_TestCase {
 		$this->notifier->wait(self::TEST_WAIT_TIMEOUT / 1000);
 		$stop = microtime(true);
 
-		$this->assertEquals(self::TEST_WAIT_TIMEOUT, ($stop - $start) * 1000, '', self::TEST_WAIT_TIMEOUT * 0.05);
+		$this->assertEquals(self::TEST_WAIT_TIMEOUT, ($stop - $start) * 1000, '', self::TEST_WAIT_TIMEOUT * self::TIMEOUT_PRECISION);
 	}
 
 	public function tearDown() {
