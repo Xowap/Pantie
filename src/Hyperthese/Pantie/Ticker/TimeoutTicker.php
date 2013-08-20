@@ -23,7 +23,7 @@ final class TimeoutTicker implements Ticker {
 	 */
 	public function wait($deadline) {
 		$usualSleepTime = $this->millisecWaitingTime * 1000;
-		$timeToDeadline = ($deadline - time()) * 1000 * 1000;
+		$timeToDeadline = ($deadline - microtime(true)) * 1000 * 1000;
 
 		if ($timeToDeadline > 0) {
 			usleep(min($usualSleepTime, $timeToDeadline));
