@@ -31,7 +31,7 @@ class TimeoutTickerTest extends \PHPUnit_Framework_TestCase {
 		$stop2 = microtime(true);
 
 		// Assert that the waiting time was the TEST_PERIOD with a 5% precision
-		$this->assertLessThan(self::TEST_PERIOD * 0.05, abs(($stop1 - $start) * 1000 - self::TEST_PERIOD));
-		$this->assertLessThan(self::TEST_PERIOD * 0.025, abs(($stop2 - $stop1) * 1000 - (self::TEST_PERIOD / 2)));
+		$this->assertEquals(self::TEST_PERIOD, ($stop1 - $start) * 1000, '', self::TEST_PERIOD * 0.05);
+		$this->assertEquals(self::TEST_PERIOD / 2, ($stop2 - $stop1) * 1000, '', self::TEST_PERIOD * 0.025);
 	}
 }
