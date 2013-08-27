@@ -8,6 +8,7 @@ use Hyperthese\Pantie\Util\Directory;
 
 class SocketTickerTest extends \PHPUnit_Framework_TestCase {
 	const WAIT_TIMEOUT = 100;
+	const TIMEOUT_PRECISION = 0.20;
 
 	/** @var string */
 	private $temporaryDirectory;
@@ -33,7 +34,7 @@ class SocketTickerTest extends \PHPUnit_Framework_TestCase {
 			$this->ticker->wait(microtime(true) + self::WAIT_TIMEOUT / 1000);
 			$stop = microtime(true);
 
-			$this->assertEquals(self::WAIT_TIMEOUT / 2, ($stop - $start) * 1000, null, self::WAIT_TIMEOUT * 0.20);
+			$this->assertEquals(self::WAIT_TIMEOUT / 2, ($stop - $start) * 1000, null, self::WAIT_TIMEOUT * self::TIMEOUT_PRECISION);
 
 			pcntl_wait($status);
 		} else {
@@ -48,6 +49,6 @@ class SocketTickerTest extends \PHPUnit_Framework_TestCase {
 		$this->ticker->wait(microtime(true) + self::WAIT_TIMEOUT / 1000);
 		$stop = microtime(true);
 
-		$this->assertEquals(self::WAIT_TIMEOUT, ($stop - $start) * 1000, null, self::WAIT_TIMEOUT * 0.20);
+		$this->assertEquals(self::WAIT_TIMEOUT, ($stop - $start) * 1000, null, self::WAIT_TIMEOUT * self::TIMEOUT_PRECISION);
 	}
 }
